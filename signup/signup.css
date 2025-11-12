@@ -1,0 +1,264 @@
+/* ...existing code... */
+/* Theme + fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+
+:root {
+    --bg-1: #0f172a;
+    /* deep navy */
+    --accent-1: #6ee7b7;
+    /* mint */
+    --accent-2: #7c3aed;
+    /* purple */
+    --card-bg: rgba(255, 255, 255, 0.06);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --muted: rgba(255, 255, 255, 0.7);
+}
+
+* {
+    box-sizing: border-box
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    font-family: 'Inter', system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    background: radial-gradient(1200px 600px at 10% 10%, rgba(124, 58, 237, 0.12), transparent 8%),
+        radial-gradient(1000px 500px at 90% 90%, rgba(110, 231, 183, 0.08), transparent 6%),
+        linear-gradient(180deg, #081025 0%, #071027 50%, #071022 100%);
+    color: #eef2ff;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+}
+
+/* decorative blobs */
+.background-blobs {
+    position: fixed;
+    inset: -10% -10% auto -10%;
+    z-index: 0;
+    pointer-events: none;
+    filter: blur(60px) saturate(120%);
+    background:
+        radial-gradient(600px 300px at 5% 20%, rgba(124, 58, 237, 0.25), transparent 20%),
+        radial-gradient(500px 250px at 95% 80%, rgba(110, 231, 183, 0.18), transparent 18%);
+    animation: floatBg 12s linear infinite alternate;
+    mix-blend-mode: screen;
+}
+
+/* Card */
+#signupCard {
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.02));
+    border: 1px solid var(--glass-border);
+    backdrop-filter: blur(8px) saturate(120%);
+    padding: 2.2rem;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px rgba(2, 6, 23, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.02);
+    transition: transform .45s cubic-bezier(.2, .9, .2, 1), box-shadow .3s;
+    transform-origin: center;
+    overflow: visible;
+    width: 100%;
+}
+
+/* Entrance animation */
+@keyframes cardIn {
+    from {
+        opacity: 0;
+        transform: translateY(16px) scale(.995);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+#signupCard {
+    animation: cardIn .6s ease both;
+}
+
+/* float background animation */
+@keyframes floatBg {
+    from {
+        transform: translateY(-10px) scale(1);
+    }
+
+    to {
+        transform: translateY(10px) scale(1.03);
+    }
+}
+
+/* Headings */
+#signupCard h2 {
+    font-weight: 700;
+    letter-spacing: -0.3px;
+    margin-bottom: 0.1rem;
+    font-size: 1.5rem;
+    background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Inputs */
+.form-control {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    color: var(--muted);
+    padding: .9rem 1rem;
+    border-radius: 10px;
+    font-size: .95rem;
+    box-shadow: none;
+    transition: border-color .22s ease, transform .14s ease, box-shadow .22s ease;
+}
+
+/* subtle input icon space if needed */
+.form-control::placeholder {
+    color: rgba(255, 255, 255, 0.45);
+}
+
+/* focus + hover */
+.form-control:focus {
+    outline: none;
+    border-color: rgba(124, 58, 237, 0.9);
+    box-shadow: 0 6px 20px rgba(124, 58, 237, 0.08), 0 2px 6px rgba(110, 231, 183, 0.03);
+    transform: translateY(-3px);
+}
+
+/* button */
+.btn-primary {
+    background: linear-gradient(90deg, var(--accent-1), var(--accent-2));
+    border: none;
+    color: #051124;
+    font-weight: 600;
+    padding: .85rem 1rem;
+    border-radius: 12px;
+    transition: transform .16s ease, box-shadow .16s ease;
+    box-shadow: 0 8px 30px rgba(124, 58, 237, 0.12);
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+    transform: translateY(-3px) scale(1.01);
+    box-shadow: 0 14px 40px rgba(124, 58, 237, 0.16);
+}
+
+/* helper text and links */
+#signupCard p small,
+#signupCard .small {
+    color: rgba(255, 255, 255, 0.55);
+}
+
+#signupCard a {
+    color: var(--accent-1);
+    text-decoration: underline;
+}
+
+/* alerts animation */
+.alert {
+    border-radius: 10px;
+    font-weight: 600;
+    animation: alertIn .35s ease;
+}
+
+@keyframes alertIn {
+    from {
+        transform: translateY(-6px);
+        opacity: 0
+    }
+
+    to {
+        transform: none;
+        opacity: 1
+    }
+}
+
+/* responsive tweaks */
+@media (max-width: 768px) {
+    #signupCard {
+        padding: 1.6rem;
+        border-radius: 14px;
+    }
+
+    #signupCard h2 {
+        font-size: 1.25rem;
+    }
+
+    .form-control {
+        padding: .8rem;
+        font-size: .95rem;
+    }
+}
+
+/* small screens */
+@media (max-width:420px) {
+    body {
+        padding: 1rem;
+    }
+
+    #signupCard {
+        padding: 1.2rem;
+    }
+
+    .btn-primary {
+        padding: .75rem;
+        font-size: .95rem;
+        border-radius: 10px;
+    }
+}
+
+/* staggered input entrance */
+.form-control,
+.btn {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeUp .5s cubic-bezier(.2, .9, .2, 1) forwards;
+}
+
+.form-control:nth-of-type(1) {
+    animation-delay: .18s;
+}
+
+.form-control:nth-of-type(2) {
+    animation-delay: .28s;
+}
+
+.form-control:nth-of-type(3) {
+    animation-delay: .36s;
+}
+
+.form-control:nth-of-type(4) {
+    animation-delay: .44s;
+}
+
+.btn {
+    animation-delay: .52s;
+}
+
+@keyframes fadeUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+
+    .background-blobs,
+    #signupCard,
+    .form-control,
+    .btn,
+    .alert {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* ...existing code... */

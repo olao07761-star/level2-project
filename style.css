@@ -1,0 +1,130 @@
+/* ...existing code... */
+/* Base styling and theme */
+:root {
+    --primary: #2563eb;
+    --accent: #7c3aed;
+    --muted: #6c757d;
+}
+
+/* Hero */
+.hero {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.hero-img {
+    transform: translateY(-6px);
+    transition: transform .6s ease;
+    box-shadow: 0 10px 30px rgba(50, 50, 93, .12);
+}
+
+.hero-img:hover {
+    transform: translateY(-12px) scale(1.02);
+}
+
+/* Product cards */
+.product-card {
+    overflow: hidden;
+    border-radius: 12px;
+    transition: transform .25s ease, box-shadow .25s ease;
+    position: relative;
+}
+
+.product-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(50, 50, 93, .18);
+}
+
+.product-img {
+    height: 180px;
+    object-fit: cover;
+    transition: transform .4s ease;
+}
+
+.product-card:hover .product-img {
+    transform: scale(1.05);
+}
+
+/* CTA gradient */
+.gradient-cta {
+    background: linear-gradient(135deg, rgba(37, 99, 235, .95), rgba(124, 58, 237, .9));
+}
+
+/* Search input */
+.search-input {
+    width: 220px;
+    transition: width .25s ease;
+}
+
+.search-input:focus {
+    width: 320px;
+}
+
+/* Feature cards */
+.feature-card {
+    transition: transform .25s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .06);
+}
+
+/* Offcanvas cart */
+.offcanvas .btn {
+    border-radius: 8px;
+}
+
+/* Badges */
+.card .badge {
+    font-weight: 600;
+}
+
+/* Buttons small animated feedback for add-to-cart */
+.add-to-cart.btn-success {
+    transform: translateY(-2px);
+    transition: transform .15s ease;
+}
+
+/* Responsive tweaks */
+@media (max-width: 767px) {
+    .hero {
+        text-align: center;
+    }
+
+    .search-input {
+        display: none;
+    }
+}
+
+/* Subtle entrance animation for product grid */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.row.g-4>.col-12 {
+    animation: fadeUp .6s ease both;
+}
+
+/* Footer */
+footer {
+    background: #fff;
+}
+
+/* Accessibility focus */
+a:focus,
+button:focus,
+input:focus {
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, .12);
+    outline: none;
+}
+
+/* ...existing code... */
