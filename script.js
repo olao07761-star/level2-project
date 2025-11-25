@@ -1,4 +1,3 @@
-// Simple product quick view and cart logic (client-side demo)
 (function () {
     const cart = { items: [], total: 0 };
 
@@ -25,21 +24,21 @@
         cartTotal.textContent = '$' + cart.items.reduce((s, i) => s + i.price * i.qty, 0).toFixed(2);
     };
 
-    // Add to cart buttons
+   
     document.querySelectorAll('.add-to-cart').forEach(btn => {
         btn.addEventListener('click', e => {
             const name = btn.dataset.name;
             const price = parseFloat(btn.dataset.price);
             const found = cart.items.find(i => i.name === name);
             if (found) found.qty += 1; else cart.items.push({ name, price, qty: 1 });
-            // small visual feedback
+            
             btn.classList.add('btn-success');
             setTimeout(() => btn.classList.remove('btn-success'), 350);
             updateCartUI();
         });
     });
 
-    // Quick view buttons
+  
     const productModal = new bootstrap.Modal(document.getElementById('productModal'));
     let currentModalProduct = null;
 

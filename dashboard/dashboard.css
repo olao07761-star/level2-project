@@ -1,0 +1,84 @@
+html,
+body,
+#dashboardRoot {
+    height: 100%
+}
+
+body {
+    background: #f6f8fb;
+    
+    font-family: Inter, system-ui, Segoe UI, Roboto, "Helvetica Neue", Arial
+}
+
+#sidebar {
+    width: 240px;
+    
+    min-width: 240px;
+
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    transition: transform .25s ease;
+    z-index: 1000;
+}
+
+#sidebar .nav-link {
+    padding: .7rem 1rem;
+    border-radius: .375rem
+}
+
+#sidebar .nav-link.active {
+    background: rgba(255, 255, 255, .06)
+}
+
+
+
+.stat-card {
+    border: 0;
+    box-shadow: 0 6px 18px rgba(16, 24, 40, .04)
+}
+
+.stat-card .icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px
+}
+
+.card h6 {
+    font-weight: 600
+}
+
+.table>tbody>tr:hover {
+    background: rgba(13, 110, 253, 0.03)
+}
+
+#recentOrders li {
+    cursor: default
+}
+
+small.text-muted {
+    opacity: .85
+}
+
+@media (max-width: 768px) {
+    #sidebar {
+        position: fixed;
+        left: 0;
+        top: 0;
+        transform: translateX(-110%)
+    }
+
+    #sidebar.open {
+        transform: translateX(0)
+    }
+
+    .flex-grow-1 {
+        margin-left: 0
+    }
+}
